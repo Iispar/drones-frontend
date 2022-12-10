@@ -1,5 +1,5 @@
 import { useState, useEffect }  from 'react'
-import droneService from '././services/DroneService'
+import droneService from '../services/DroneService'
 
 const Main = () => {
     const [drones, setDrones] = useState([])
