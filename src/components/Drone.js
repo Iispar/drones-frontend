@@ -4,13 +4,13 @@ import distanceFromMiddle from './Helpers'
 import propTypes from 'prop-types'
 import droneService from '../services/DroneService'
 
-const Drone = async (props) => {
+const Drone = (props) => {
   const x = props.x
   const y = props.y
   const serialNumber = props.serialNumber
   const distance = distanceFromMiddle(x, y)
 
-  const pilot = await droneService.getPilot(serialNumber)
+  const pilot = droneService.getPilot(serialNumber)
   // TODO: get pilot data
 
   if (distance < 100000) {
