@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import distanceFromMiddle from './Helpers'
 import propTypes from 'prop-types'
 import droneService from '../services/DroneService'
@@ -9,17 +9,20 @@ const Drone = (props) => {
   const y = props.y
   const serialNumber = props.serialNumber
   const distance = distanceFromMiddle(x, y)
+  const [pilot, setPilot] = useState('null')
 
-  const pilot = droneService.getPilot(serialNumber)
-  // TODO: get pilot data
+  useEffect(() => {
+    droneService.getPilot(serialNumber).then(pilotInfo =>
+      setPilot(pilotInfo.firstName + ', ' + pilotInfo.email + ', ' + pilotInfo.phoneNumber))
+  }, [])
 
   if (distance < 100000) {
     return (
-        <p> @@INSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} @@@</p>
+        <p> @@INSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} Pilot: {pilot} @@@</p>
     )
   } else {
     return (
-        <p> @@OUTSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} @@@</p>
+        <p> @@OUTSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} Pilot: {pilot} @@@</p>
     )
   }
 }
