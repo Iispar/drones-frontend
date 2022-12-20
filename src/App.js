@@ -1,7 +1,7 @@
 import React from 'react'
 import Main from './components/Main'
 
-function App () {
+const App = () => {
   return (
     <div className = "App">
       <Main></Main>
@@ -10,4 +10,3 @@ function App () {
 }
 
 export default App
-
