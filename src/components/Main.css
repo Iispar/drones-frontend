@@ -30,9 +30,11 @@
   grid-column: 1;
   border: 2px solid black;
   border-radius: 10px;
-  height: 80%;
+  left: 10px;
+  height: 90%;
   top: 100px;
   width: 50%;
+  max-width: 500px;
 }
 
 .allPilots-container {
@@ -79,6 +81,7 @@
   height: 50px;
   margin: 5px;
   padding: 10px;
+  max-width: 480px;
 }
 
 .loading-container {
