@@ -1,36 +1,30 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
-import distanceFromMiddle from './Helpers'
+import React from 'react'
 import propTypes from 'prop-types'
-import droneService from '../services/DroneService'
 
 const Drone = (props) => {
-  const x = props.x
-  const y = props.y
+  const distance = Math.round(props.distance / 1000)
   const serialNumber = props.serialNumber
-  const distance = distanceFromMiddle(x, y)
-  const [pilot, setPilot] = useState('null')
+  const firstName = props.firstName
+  const lastName = props.lastName
+  const email = props.email
+  const number = props.number
 
-  useEffect(() => {
-    droneService.getPilot(serialNumber).then(pilotInfo =>
-      setPilot(pilotInfo.firstName + ', ' + pilotInfo.email + ', ' + pilotInfo.phoneNumber))
-  }, [])
-
-  if (distance < 100000) {
-    return (
-        <p> @@INSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} Pilot: {pilot} @@@</p>
-    )
-  } else {
-    return (
-        <p> @@OUTSIDE X: {x} Y: {y} @@@@ DISTANCE: {distance} SerialNumber: {serialNumber} Pilot: {pilot} @@@</p>
-    )
-  }
+  return (
+    <div className = "singlePilot-container" id = "singlePilot-container">
+        <div className = "pilotInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
+        <div className = "sensitiveInformation-container">  Email: {email} number: {number} </div>
+    </div>
+  )
 }
 
 Drone.propTypes = {
-  x: propTypes.string.isRequired,
-  y: propTypes.string.isRequired,
-  serialNumber: propTypes.string.isRequired
+  serialNumber: propTypes.string.isRequired,
+  distance: propTypes.number,
+  firstName: propTypes.string.isRequired,
+  lastName: propTypes.string.isRequired,
+  email: propTypes.string.isRequired,
+  number: propTypes.string.isRequired
 }
 
 export default Drone

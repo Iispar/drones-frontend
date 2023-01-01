@@ -1,10 +1,21 @@
 import React from 'react'
 import Main from './components/Main'
+import Header from './components/Header'
+import Map from './components/Map'
+import './components/Main.css'
 
 const App = () => {
   return (
-    <div className = "App">
-      <Main></Main>
+    <div className="grid-container">
+      <div className="header-container">
+        <Header></Header>
+      </div>
+      <div className="main-container">
+        <Main></Main>
+      </div>
+      <div className="right-container">
+        <Map></Map>
+      </div>
     </div>
   )
 }
