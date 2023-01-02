@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import droneService from '../services/DroneService'
 import Drone from './Drone'
+import Map from './Map'
 
 const Main = () => {
   const [drones, setDrones] = useState([])
@@ -38,8 +39,15 @@ const Main = () => {
   }
 
   return (
-    <div className = "allPilots-container" id = "allPilots-container">
-      {printDrones()}
+    <div className = "droneinfo-container" id = "droneinfo-container">
+      <div className = "allPilots-container" id = "allPilots-container">
+        <div className = "pilotlist-container" id = "pilotlist-container">
+          {printDrones()}
+        </div>
+      </div>
+      <div className = "right-container" id = "right-container">
+        <Map drones = {drones}></Map>
+      </div>
     </div>
   )
 }

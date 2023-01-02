@@ -1,7 +1,6 @@
 import React from 'react'
 import Main from './components/Main'
 import Header from './components/Header'
-import Map from './components/Map'
 import './components/Main.css'
 import './components/Map.css'
 
@@ -13,9 +12,6 @@ const App = () => {
       </div>
       <div className="main-container">
         <Main></Main>
-      </div>
-      <div className="right-container">
-        <Map></Map>
       </div>
     </div>
   )

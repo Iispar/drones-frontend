@@ -1,9 +1,7 @@
 .right-container {
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
-    grid-column: 2/2;
     border: 2px solid black;
     border-radius: 10px;
     right: 18px;
