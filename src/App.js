@@ -3,6 +3,7 @@ import Main from './components/Main'
 import Header from './components/Header'
 import Map from './components/Map'
 import './components/Main.css'
+import './components/Map.css'
 
 const App = () => {
   return (

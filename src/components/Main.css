@@ -27,30 +27,22 @@
   display: flex;
   position: absolute;
   justify-content: center;
-  grid-column: 1;
+  grid-column: 1/2;
   border: 2px solid black;
   border-radius: 10px;
   left: 10px;
   height: 90%;
-  top: 100px;
-  width: 50%;
+  max-height: 750px;
+  top: 75px;
+  width: 90%;
   max-width: 500px;
 }
 
 .allPilots-container {
   display: flex;
-  overflow: auto;
-  justify-content: center;
+  overflow: scroll;
   flex-direction: column;
   width: 100%;
-}
-
-.right-container {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  right: 18px;
-  grid-column: 2;
 }
 
 .pilotInformation-container {
