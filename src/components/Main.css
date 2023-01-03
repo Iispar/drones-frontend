@@ -35,8 +35,9 @@
 .droneinfo-container {
   display: flex;
   justify-content: space-between;
-  gap: 300px;
+  gap: 200px;
   margin-left: 100px;
+  width: 80%;
 }
 
 .allPilots-container {

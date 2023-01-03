@@ -2,6 +2,11 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
+/**
+ * Display the information of a single pilot.
+ * @param props
+ * @returns information of a single pilot.
+ */
 const Drone = (props) => {
   const distance = Math.round(props.distance / 1000)
   const serialNumber = props.serialNumber
