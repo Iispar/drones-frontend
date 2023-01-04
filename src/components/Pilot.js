@@ -6,7 +6,7 @@ import propTypes from 'prop-types'
  * @param props
  * @returns information of a single pilot.
  */
-const Drone = (props) => {
+const Pilot = (props) => {
   const distance = Math.round(props.distance / 1000)
   const firstName = props.firstName
   const lastName = props.lastName
@@ -21,8 +21,7 @@ const Drone = (props) => {
   )
 }
 
-Drone.propTypes = {
-  serialNumber: propTypes.string.isRequired,
+Pilot.propTypes = {
   distance: propTypes.number,
   firstName: propTypes.string.isRequired,
   lastName: propTypes.string.isRequired,
@@ -30,4 +29,4 @@ Drone.propTypes = {
   number: propTypes.string.isRequired
 }
 
-export default Drone
+export default Pilot

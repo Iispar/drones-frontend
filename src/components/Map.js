@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Pilot from './Pilot'
 
 /**
  * Method for displaying the drones that are violating the border
@@ -7,6 +8,8 @@ import React from 'react'
  * @returns map of drones, nest and the border.
  */
 const Map = (list) => {
+  const [pilot, setPilot] = useState('Hover over a drone to see it`s information')
+
   const displayDrones = (list) => {
     const drones = list.drones
     const allLocations = []
@@ -20,7 +23,17 @@ const Map = (list) => {
                           key = {drones[i].serialNumber}
                           cx = {x}
                           cy = {y}
-                          r = {3}
+                          r = {4}
+                          className="drone"
+                          onMouseOver = {() => setPilot(<Pilot
+                            firstName = {drones[i].firstName}
+                            lastName = {drones[i].lastName}
+                            email = {drones[i].email}
+                            number = {drones[i].number}
+                            distance = {drones[i].distance}
+                            />
+                          )}
+                          onMouseOut = {() => setPilot('Hover over a drone to see it`s information')}
                         />
       allLocations.push(location)
     }
@@ -28,12 +41,19 @@ const Map = (list) => {
   }
 
   return (
-    <div className="map-container" id = "map-container">
-      <svg id = "drone-map">
-        <circle cx="50%" cy="50%" r="50%" id="circle"/>
-        <circle cx="50%" cy="50%" r="1%" id="nest"/>
-        {displayDrones(list)}
-      </svg>
+    <div className="mapandpilot-container" id = "mapandpilot-container">
+      <div className="map-container" id = "map-container">
+        <svg id = "drone-map">
+          <circle cx="50%" cy="50%" r="50%" id="circle"/>
+          <circle cx="50%" cy="50%" r="5" id="nest"/>
+          {displayDrones(list)}
+        </svg>
+      </div>
+      <div className="selectedpilot-container">
+        <div className="label" id="pilot-information">
+          {pilot}
+        </div>
+      </div>
     </div>
   )
 }
