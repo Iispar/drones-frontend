@@ -59,6 +59,7 @@ const Main = () => {
     <div className = "droneinfo-container" id = "droneinfo-container">
       <div className = "allPilots-container" id = "allPilots-container">
         <div className = "pilotlist-container" id = "pilotlist-container">
+          <h2> Pilots that have violated the border </h2>
           {printPilots()}
         </div>
       </div>

@@ -8,7 +8,9 @@ import Pilot from './Pilot'
  * @returns map of drones, nest and the border.
  */
 const Map = (list) => {
-  const [pilot, setPilot] = useState('Hover over a drone to see it`s information')
+  const [pilot, setPilot] = useState(<Pilot
+                                        firstName = 'default'
+                                      />)
 
   const displayDrones = (list) => {
     const drones = list.drones
@@ -16,11 +18,11 @@ const Map = (list) => {
 
     // Draw a circle for every drone that is inside the border.
     for (const i in drones) {
-      const scale = document.getElementById('right-container').clientHeight / 200
+      const scale = document.getElementById('map-container').clientHeight / 200
       const x = Math.round(((drones[i].positionX / 1000) - 150) * scale)
       const y = Math.round(((drones[i].positionY / 1000) - 150) * scale)
-      const location = <circle
-                          key = {drones[i].serialNumber}
+      const location = <a id = {drones[i].serialNumber} key = {drones[i].serialNumber}>
+                        <circle
                           cx = {x}
                           cy = {y}
                           r = {4}
@@ -33,8 +35,12 @@ const Map = (list) => {
                             distance = {drones[i].distance}
                             />
                           )}
-                          onMouseOut = {() => setPilot('Hover over a drone to see it`s information')}
+                          onMouseOut = {() => setPilot(<Pilot
+                            firstName = 'default'
+                            />
+                          )}
                         />
+                        </a>
       allLocations.push(location)
     }
     return (allLocations)

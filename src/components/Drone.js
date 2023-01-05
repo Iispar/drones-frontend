@@ -8,15 +8,32 @@ import propTypes from 'prop-types'
  */
 const Drone = (props) => {
   const distance = Math.round(props.distance / 1000)
+  const serialNumber = props.serialNumber
   const firstName = props.firstName
   const lastName = props.lastName
   const email = props.email
   const number = props.number
 
+  /**
+   * Displays selected drone on the map as red.
+   * @returns sets selected drone red on map
+   */
+  const displayDrone = (serialNumber, direction) => {
+    const id = serialNumber.serialNumber
+    if (direction === 'in') {
+      document.getElementById(id).firstChild.style.fill = 'red'
+    } else {
+      document.getElementById(id).firstChild.style.fill = 'black'
+    }
+  }
+
   return (
-    <div className = "singlePilot-container" id = "singlePilot-container">
+    <div className = "singlePilot-container"
+    id = "singlePilot-container"
+    onMouseOver = {() => displayDrone({ serialNumber }, 'in')}
+    onMouseOut = {() => displayDrone({ serialNumber }, 'out')}>
         <div className = "pilotInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
-        <div className = "sensitiveInformation-container">  Email: {email} number: {number} </div>
+        <div className = "sensitiveInformation-container">  Email: {email}, number: {number} </div>
     </div>
   )
 }

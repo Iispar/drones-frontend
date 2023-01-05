@@ -32,7 +32,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: 40px;
+    width: 550px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.selectedInformation-container {
+    text-transform: uppercase;
+        font-size: 13px;
+        font-family: "Work Sans", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.8px;
+        margin: 0;
+}
+
+.noPilotSelected-container {
+    text-transform: uppercase;
+        font-size: 13px;
+        font-family: "Work Sans", sans-serif;
+        font-weight: 50;
+        letter-spacing: 0.8px;
+        margin: 0;
 }
 
 .drone:hover {

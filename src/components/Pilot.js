@@ -13,20 +13,30 @@ const Pilot = (props) => {
   const email = props.email
   const number = props.number
 
+  if (firstName === 'default') {
+    return (
+        <div className = "noPilotSelected-container" id = "noPilotSelected-container">
+            Hover over a drone to get it`s information
+            <div className = "noPilotSelected-container" id = "noPilotSelected-container">
+            or hover over a pilot to see it on the map
+          </div>
+        </div>
+    )
+  }
   return (
-    <div className = "singlePilot-container" id = "singlePilot-container">
-        <div className = "pilotInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
-        <div className = "sensitiveInformation-container">  Email: {email} number: {number} </div>
+    <div className = "selectedDrone-container" id = "selectedDrone-container">
+        <div className = "selectedInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
+        <div className = "selectedInformation-container">  Email: {email}, number: {number} </div>
     </div>
   )
 }
 
 Pilot.propTypes = {
   distance: propTypes.number,
-  firstName: propTypes.string.isRequired,
-  lastName: propTypes.string.isRequired,
-  email: propTypes.string.isRequired,
-  number: propTypes.string.isRequired
+  firstName: propTypes.string,
+  lastName: propTypes.string,
+  email: propTypes.string,
+  number: propTypes.string
 }
 
 export default Pilot
