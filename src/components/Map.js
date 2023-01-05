@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Pilot from './Pilot'
+import $ from 'jquery'
 
 /**
  * Method for displaying the drones that are violating the border
@@ -18,7 +19,7 @@ const Map = (list) => {
 
     // Draw a circle for every drone that is inside the border.
     for (const i in drones) {
-      const scale = document.getElementById('map-container').clientHeight / 200
+      const scale = $('#map-container').height() / 200
       const x = Math.round(((drones[i].positionX / 1000) - 150) * scale)
       const y = Math.round(((drones[i].positionY / 1000) - 150) * scale)
       const location = <a id = {drones[i].serialNumber} key = {drones[i].serialNumber}>

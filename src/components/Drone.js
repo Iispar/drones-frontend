@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import $ from 'jquery'
 
 /**
  * Display the information of a single pilot.
@@ -14,24 +15,11 @@ const Drone = (props) => {
   const email = props.email
   const number = props.number
 
-  /**
-   * Displays selected drone on the map as red.
-   * @returns sets selected drone red on map
-   */
-  const displayDrone = (serialNumber, direction) => {
-    const id = serialNumber.serialNumber
-    if (direction === 'in') {
-      document.getElementById(id).firstChild.style.fill = 'red'
-    } else {
-      document.getElementById(id).firstChild.style.fill = 'black'
-    }
-  }
-
   return (
     <div className = "singlePilot-container"
     id = "singlePilot-container"
-    onMouseOver = {() => displayDrone({ serialNumber }, 'in')}
-    onMouseOut = {() => displayDrone({ serialNumber }, 'out')}>
+    onMouseOver = {() => $(`#${serialNumber}`).css('fill', 'red')}
+    onMouseOut = {() => $(`#${serialNumber}`).css('fill', 'black')}>
         <div className = "pilotInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
         <div className = "sensitiveInformation-container">  Email: {email}, number: {number} </div>
     </div>
