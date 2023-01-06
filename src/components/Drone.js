@@ -17,6 +17,7 @@ const Drone = (props) => {
 
   return (
     <div className = "singlePilot-container"
+    role = "singlePilot-container"
     id = "singlePilot-container"
     onMouseOver = {() => $(`#${serialNumber}`).css('fill', 'red')}
     onMouseOut = {() => $(`#${serialNumber}`).css('fill', 'black')}>

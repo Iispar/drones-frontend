@@ -22,7 +22,7 @@ const Map = (list) => {
       const scale = $('#map-container').height() / 200
       const x = Math.round(((drones[i].positionX / 1000) - 150) * scale)
       const y = Math.round(((drones[i].positionY / 1000) - 150) * scale)
-      const location = <a id = {drones[i].serialNumber} key = {drones[i].serialNumber}>
+      const location = <a id = {drones[i].serialNumber} key = {drones[i].serialNumber} role='drone'>
                         <circle
                           cx = {x}
                           cy = {y}
@@ -52,6 +52,7 @@ const Map = (list) => {
       <div className="map-container" id = "map-container">
         <svg id = "drone-map">
           <circle cx="50%" cy="50%" r="50%" id="circle"/>
+          <text> circle </text>
           <circle cx="50%" cy="50%" r="5" id="nest"/>
           {displayDrones(list)}
         </svg>
