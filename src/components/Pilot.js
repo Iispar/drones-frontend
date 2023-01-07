@@ -13,6 +13,7 @@ const Pilot = (props) => {
   const email = props.email
   const number = props.number
 
+  // if a drone isn't selected on the map.
   if (firstName === 'default') {
     return (
         <div className = "noPilotSelected-container" id = "noPilotSelected-container">
@@ -23,6 +24,7 @@ const Pilot = (props) => {
         </div>
     )
   }
+  // if a drone is selected.
   return (
     <div className = "selectedDrone-container" id = "selectedDrone-container">
         <div className = "selectedInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>

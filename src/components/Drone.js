@@ -19,7 +19,9 @@ const Drone = (props) => {
     <div className = "singlePilot-container"
     role = "singlePilot-container"
     id = "singlePilot-container"
+    // hovering sets the location on the map red
     onMouseOver = {() => $(`#${serialNumber}`).css('fill', 'red')}
+    // when hovering ends
     onMouseOut = {() => $(`#${serialNumber}`).css('fill', 'black')}>
         <div className = "pilotInformation-container"> Distance to nest: {distance}m, Pilot: {firstName} {lastName} </div>
         <div className = "sensitiveInformation-container">  Email: {email}, number: {number} </div>

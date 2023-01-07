@@ -9,6 +9,7 @@ import $ from 'jquery'
  * @returns map of drones, nest and the border.
  */
 const Map = (list) => {
+  // useState for the pilots information. So we can use it by just setPilot.
   const [pilot, setPilot] = useState(<Pilot
                                         firstName = 'default'
                                       />)
@@ -19,6 +20,8 @@ const Map = (list) => {
 
     // Draw a circle for every drone that is inside the border.
     for (const i in drones) {
+      // calculated the location of the drone depending of the size of the map.
+      // this way we can have a proper scale for the map always.
       const scale = $('#map-container').height() / 200
       const x = Math.round(((drones[i].positionX / 1000) - 150) * scale)
       const y = Math.round(((drones[i].positionY / 1000) - 150) * scale)
@@ -28,6 +31,7 @@ const Map = (list) => {
                           cy = {y}
                           r = {4}
                           className="drone"
+                          // when hovering we set a the pilot info to the responding pilot
                           onMouseOver = {() => setPilot(<Pilot
                             firstName = {drones[i].firstName}
                             lastName = {drones[i].lastName}
@@ -36,6 +40,7 @@ const Map = (list) => {
                             distance = {drones[i].distance}
                             />
                           )}
+                          // when hovering ends we set it back to the default.
                           onMouseOut = {() => setPilot(<Pilot
                             firstName = 'default'
                             />
