@@ -4,7 +4,7 @@ frontend for a project made for Reaktor's job application.
 
 # Overview
 
-The application displays drones that have violated a set boarder to a birds nest. The data is retrieved from my own backend which gets the data from Reaktor:s API and is handled in the backend (check repository [reaktorTaskBackend](https://github.com/Iispar/reaktorTaskBackend)). The data displayed is from the last 10 minutes and displays the drones pilot, closest distance, name, email and phone number. The map displays these drones visually.
+The application displays drones that have violated a set boarder to a birds nest. The data is retrieved from my own backend which gets the data from Reaktor:s API and is handled in the backend (check repository [drones-backend](https://github.com/Iispar/reaktorTaskBackend)). The data displayed is from the last 10 minutes and displays the drones pilot, closest distance, name, email and phone number. The map displays these drones visually.
 
 # How to run
 
